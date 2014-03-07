@@ -3,7 +3,7 @@
 
 var bb = require('ciab-backbone');
 
-var validation = require('backbone-validation');
+var validation = require('ciab-validation');
 
 module.exports = bb.React.Component.extend({
   getInitialState: function () {
