@@ -3,46 +3,22 @@
 var React = require('react');
 var expect = require('chai').expect;
 var sinon = require('sinon');
-require('node-jsx').install();
 
-var Action = require('../Action');
-var ActionList = require('../ActionList');
-var ActionListView = require('../ActionListView');
+var Action = require('../lib/Action');
+var ActionList = require('../lib/ActionList');
+var ActionListView = require('../lib/ActionListView');
 
 describe("ActionListView", function() {
   var actionListView, actionList;
-  var window, document;
-
-  before(function(done) {
-    if (typeof document === 'undefined') {
-      var jsdom = require('jsdom');
-      jsdom.env({
-        html: '<html><body></body></html>',
-        done: function (err, window) {
-          window = global.window = window;
-          document = global.document = window.document;
-          var backbone = require('ciab-backbone');
-          backbone.$ = backbone.$(window);
-          done();
-        }
-      })
-    }
-  });
 
   it("should be createable", function () {
 
-    // create element for action view to bind to
-    var actionEl = document.createElement('div');
-    actionEl.className = 'actions';
-    document.body.appendChild(actionEl);
-
-    // create new action list and reset
+    // create new action list
     actionList = new ActionList();
-    actionList.reset();
 
     // create new action view
     actionListView = new ActionListView({
-      el: actionEl,
+      el: document.body,
       collection: actionList,
     });
 
@@ -68,8 +44,9 @@ describe("ActionListView", function() {
     });
 
     it("should create two empty actions", function() {
+      console.log(actionListView.getDOMNode().querySelectorAll('section.action'));
       expect(actionList.add.calledTwice).to.be.true;
-      expect(actionListView.getDOMNode().querySelectorAll('form.action-form').length).to.equal(2);
+      expect(actionListView.getDOMNode().querySelectorAll('section.action').length).to.equal(2);
       expect(actionList.models.length).to.equal(2);
     });
 

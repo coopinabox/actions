@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var ActionList = require('../ActionList');
+var ActionList = require('../lib/ActionList');
 
 describe("ActionList", function () {
   var actionList = new ActionList();

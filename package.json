@@ -2,12 +2,14 @@
   "name": "ciab-actions",
   "version": "0.1.2",
   "description": "actionable items interface for Coop-in-a-Box",
-  "main": "index.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/*.js",
+    "test-server": "(export NODE_ENV=test; mocha -R spec \"test/!(*.client).js\")",
+    "test-client": "(export NODE_ENV=test; testling)",
+    "test": "npm run test-server && (if [ -z \"$TRAVIS\" ]; then npm run test-client; fi)",
     "release": "npm-release patch -m \"version++\""
   },
   "repository": {
@@ -25,16 +27,33 @@
       "reactify"
     ]
   },
+  "testling": {
+    "files": "test/!(*.server).js",
+    "harness": "mocha",
+    "browsers": [
+      "ie/9..latest",
+      "firefox/17..nightly",
+      "chrome/23..canary",
+      "opera/15..next",
+      "safari/6..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/4.2"
+    ]
+  },
   "devDependencies": {
     "npm-release": "0.0.4-3",
+    "testling": "^1.6.0",
     "chai": "^1.9.0",
     "mocha": "^1.17.1",
     "sinon": "^1.9.0",
     "backbone": "^1.1.2",
+    "chai-jquery": "^1.2.1",
+    "jquery": "^2.1.0",
     "envify": "^1.2.1",
     "react": "^0.9.0",
-    "jsdom": "^0.10.1",
-    "node-jsx": "^0.9.0"
+    "node-jsx": "^0.9.0",
+    "reactify": "^0.9.1"
   },
   "dependencies": {
     "ciab-backbone": "^0.1.0",
