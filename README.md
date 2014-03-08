@@ -7,7 +7,7 @@
 
 [![browser tests](https://ci.testling.com/coopinabox/actions.png)](https://ci.testling.com/coopinabox/actions)
 
-a header component with navigation
+an interface to actionable items
 
 ## how to install
 
