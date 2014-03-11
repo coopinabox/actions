@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "ciab-backbone": "^0.1.0",
-    "ciab-validation": "^0.1.0"
+    "ciab-validation": "^0.1.0",
+    "underscore": "~1.6.0"
   }
 }
