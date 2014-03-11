@@ -23,8 +23,9 @@ describe("ActionListView", function() {
 
   it("should be renderable", function () {
     // render action view
-    actionListView.toHTML(function (html) {
-      expect(html).to.exist;
-    });
+    var html = React.renderComponentToString(
+      actionListView
+    );
+    expect(html).to.exist;
   });
 });

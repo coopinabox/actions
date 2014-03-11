@@ -18,12 +18,14 @@ describe("ActionListView", function() {
 
     // create new action view
     actionListView = new ActionListView({
-      el: document.body,
       collection: actionList,
     });
 
-    // mount action view
-    actionListView.mount();
+    // renderComponent action view
+    React.renderComponent(
+      actionListView,
+      document.body
+    );
   });
 
   describe('clicking the plus button twice', function() {
