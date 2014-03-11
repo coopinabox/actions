@@ -1,6 +1,6 @@
 {
   "name": "ciab-actions",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "actionable items interface for Coop-in-a-Box",
   "main": "lib/index.js",
   "directories": {
