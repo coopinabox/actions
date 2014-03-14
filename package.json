@@ -57,11 +57,12 @@
     "envify": "^1.2.1",
     "react": "^0.9.0",
     "node-jsx": "^0.9.0",
-    "reactify": "^0.9.1"
+    "reactify": "^0.9.1",
+    "ciab-bookshelf": "^0.1.1"
   },
   "dependencies": {
     "ciab-validation": "^0.1.0",
     "underscore": "~1.6.0",
-    "react-backbone-mixin": "~0.1.1"
+    "backbone-react-component": "git://github.com/magalhas/backbone-react-component#mixin"
   }
 }
